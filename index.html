@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="custy.css">
     <link rel="shortcut icon" href="img/Comp-a-Thon.svg" type="favicon">
     <title>COMP-A-Thon</title>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="664854847379-nk4g3lkong4nskgl66aijf3fmkjrgt1g.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 
@@ -25,11 +28,12 @@
           <a class="mr-5 hover:text-purple-400" href="#sponsors">Sponsors</a>
           <a class="mr-5 hover:text-purple-400" href="#faq">FAQs</a>
         </nav>
-        <button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-purple-700 hover:text-white rounded text-base mt-4 md:mt-0">Web Check-in
+        <div class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-purple-700 hover:text-white rounded text-base mt-4 md:mt-0">Web Check-in
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
-        </button>
+        </div>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
       </div>
     </header>
     <!-- ////////////////////////////////////////////////////HEADER\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
@@ -385,6 +389,23 @@
     </div>
   </footer>
   <!-- //////////////////////////////////////////////////FOOTER\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+  <script>
+    function onSignIn(googleUser) {
+      // Useful data for your client-side scripts:
+      var profile = googleUser.getBasicProfile();
+      console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+      console.log('Full Name: ' + profile.getName());
+      console.log('Given Name: ' + profile.getGivenName());
+      console.log('Family Name: ' + profile.getFamilyName());
+      console.log("Image URL: " + profile.getImageUrl());
+      console.log("Email: " + profile.getEmail());
+
+      // The ID token you need to pass to your backend:
+      var id_token = googleUser.getAuthResponse().id_token;
+      console.log("ID Token: " + id_token);
+    }
+  </script>
   
 <script src="https://kit.fontawesome.com/c0f0e3d6c6.js" crossorigin="anonymous"></script>
 <script defer async src="https://apply.devfolio.co/v2/sdk.js"></script>
