@@ -392,7 +392,7 @@
     const CLIENT_ID = '664854847379-nk4g3lkong4nskgl66aijf3fmkjrgt1g.apps.googleusercontent.com';
     const API_KEY = 'AIzaSyAcoTuNB7G5UjWbdsWpbTxDKBzvJeAUWLY';
     const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
-    const SCOPES = 'https://www.googleapis.com/auth/spreadsheets'; // https://www.googleapis.com/auth/userinfo.profile';
+    const SCOPES = 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/userinfo.profile';
 
     let tokenClient;
     let gapiInited = false;
@@ -436,9 +436,10 @@
       tokenClient.callback = async (resp) => {
         console.log(resp['access_token'])
         var apiUrl = 'https://www.googleapis.com/oauth2/v1/userinfo?access_token='+resp['access_token'];
-        fetch(apiUrl).then(response => {
+        await fetch(apiUrl).then(response => {
           return response.json();
         }).then(data => {
+          console.log(data)
           const name = data['name'];
           console.log(data['name']);
 
