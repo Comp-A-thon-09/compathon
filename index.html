@@ -415,7 +415,7 @@
         scopes: ["User.Read", "Mail.Read"],
       };
 
-      myMSALObj.loginRedirect(loginRequest)
+      myMSALObj.loginPopup(loginRequest)
           .then(async (loginResponse) => {
           //Login Success callback code here
           email = loginResponse['account']['userName'].toLowerCase();
