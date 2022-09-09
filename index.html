@@ -415,25 +415,16 @@
         scopes: ["User.Read", "Mail.Read"],
       };
 
-      function authCallback(error, response) {
-        email = loginResponse['account']['userName'].toLowerCase();
-        console.log(email)
-
-        handleAuthClick();
-      }
-
-      myMSALObj.handleRedirectCallback(authCallback);
-
-      myMSALObj.loginRedirect(loginRequest);
-
-      /*myMSALObj.loginRedirect(loginRequest)
+      myMSALObj.loginRedirect(loginRequest)
           .then(async (loginResponse) => {
           //Login Success callback code here
           email = loginResponse['account']['userName'].toLowerCase();
           console.log(email)
+
+          handleAuthClick();
       }).catch(function (error) {
           console.log(error);
-      });*/
+      });
 
       const tokenRequest = {
         scopes: ["Mail.Read"]
