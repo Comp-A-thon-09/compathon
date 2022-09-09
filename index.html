@@ -400,7 +400,7 @@
       auth: {
         clientId: "b93618fd-02b8-4f6c-91c7-d0bb8d0b1d5d", // this is a fake id
         authority: "https://login.microsoftonline.com/2c5bdaf4-8ff2-4bd9-bd54-7c50ab219590",
-        redirectUri: "http://localhost:5500/",
+        redirectUri: "https://comp-a-thon-09.github.io/compathon/",
       },
       cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
@@ -516,6 +516,7 @@
                   return;
                  }
               }
+              alert('COULD NOT CHECK YOU IN. PLEASE CONTACT YOUR GIVEN POC')
               const numRows = result.values ? result.values.length : 0;
               console.log(`${numRows} rows retrieved.`);
             });
