@@ -415,13 +415,23 @@
         scopes: ["User.Read", "Mail.Read"],
       };
 
-      myMSALObj.loginPopup(loginRequest)
+      function authCallback(error, response) {
+        email = loginResponse['account']['userName'].toLowerCase();
+        console.log(email)
+      }
+
+      myMSALObj.handleRedirectCallback(authCallback);
+
+      myMSALObj.loginRedirect(loginRequest);
+
+      /*myMSALObj.loginRedirect(loginRequest)
           .then(async (loginResponse) => {
           //Login Success callback code here
           email = loginResponse['account']['userName'].toLowerCase();
+          console.log(email)
       }).catch(function (error) {
           console.log(error);
-      });
+      });*/
 
       const tokenRequest = {
         scopes: ["Mail.Read"]
