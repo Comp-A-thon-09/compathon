@@ -440,9 +440,6 @@
       
       console.log("Here");
     }
-
-    
-    microsoftFlow();
     
 
     let tokenClient;
@@ -464,6 +461,7 @@
 
     document.getElementById('checkIn').style.visibility = 'hidden'
     document.getElementById('checkIn').addEventListener("click", () => {
+      microsoftFlow();
       handleAuthClick();
     })
 
