@@ -396,19 +396,19 @@
     const SCOPES = 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/userinfo.profile';
     var email;
 
-    const msalConfig = {
-      auth: {
-        clientId: "b93618fd-02b8-4f6c-91c7-d0bb8d0b1d5d", // this is a fake id
-        authority: "https://login.microsoftonline.com/2c5bdaf4-8ff2-4bd9-bd54-7c50ab219590",
-        redirectUri: "https://comp-a-thon-09.github.io/compathon/",
-      },
-      cache: {
-        cacheLocation: "sessionStorage", // This configures where your cache will be stored
-        storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
-      }
-    };
-
     async function microsoftFlow() {
+      const msalConfig = {
+        auth: {
+          clientId: "b93618fd-02b8-4f6c-91c7-d0bb8d0b1d5d", // this is a fake id
+          authority: "https://login.microsoftonline.com/2c5bdaf4-8ff2-4bd9-bd54-7c50ab219590",
+          redirectUri: "https://comp-a-thon-09.github.io/compathon/",
+        },
+        cache: {
+          cacheLocation: "sessionStorage", // This configures where your cache will be stored
+          storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+        }
+      };
+
       const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
       const loginRequest = {
@@ -436,9 +436,6 @@
       const tokenRequest = {
         scopes: ["Mail.Read"]
       };
-
-      
-      console.log("Here");
     }
     
 
