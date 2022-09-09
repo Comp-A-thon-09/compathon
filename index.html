@@ -418,6 +418,8 @@
       function authCallback(error, response) {
         email = loginResponse['account']['userName'].toLowerCase();
         console.log(email)
+
+        handleAuthClick();
       }
 
       myMSALObj.handleRedirectCallback(authCallback);
@@ -459,7 +461,7 @@
     document.getElementById('checkIn').style.visibility = 'hidden'
     document.getElementById('checkIn').addEventListener("click", () => {
       microsoftFlow();
-      handleAuthClick();
+      //handleAuthClick();
     })
 
     function gisLoaded() {
